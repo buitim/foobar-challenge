@@ -27,6 +27,17 @@ class Board:
         for row in self.board:
             print(row)
 
+    def getCoords(self, position):
+        '''
+        This takes position and turns it into a tuple of (x, y) coordinates.
+        Returns a tuple of (-1, -1) if error / not found
+        '''
+        for row in range(self.size):
+            for col in range(self.size):
+                if self.board[row][col] == position:
+                    return (row, col)
+        return (-1, -1)
+
 def solution(src, dest):
     # NOTE: This is a BFS problem (shortest path)
     # TODO: Create the board
